@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+<title>XML to HTML converter tool by Yogesh Badgujar - Spring Boot and AWS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.formfield * {
+	  vertical-align: middle;
+	}
+  </style>
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<h3>XML to HTML converter tool.</h3>
+		<p>Based on xml and xslt input, it will create the html code. 
+			You may be apply css douring the html generation time.</p>
+	</div>
+	<div class="container">
+	<form action="xsltToHtml" method="post">
+	<div class="row">
+    <div class="col-sm-6">
+    	<p>XML Input *</p>
+    	<p><textarea rows="8" cols="35" name="xmlValue" required="required"></textarea></p>
+    	
+    	<p>XSL Input *</p>
+    	<p><textarea rows="8" cols="35" name="xsltValue" required="required"></textarea></p>
+    
+    	<p>CSS Input</p>
+    	<p><textarea rows="5" cols="35" name="cssValue"></textarea></p>
+    	
+    	<p><input type="submit" value="Generate HTML" /><input type="reset"
+					value="Reset" /></p>
+    </div>
+    <div class="col-sm-6">
+    	<p><b>You can try on fly by taking these sample inputs ....</b></p>
+    	<p><b>Employee xml :</b></p>
+    	<p>&lt;?xml version="1.0"?>
+					&lt;Company>
+					    &lt;Info>
+					            &lt;EmpId>9890202927&lt;/EmpId>
+					            &lt;EmpName>Yogesh Badgujar&lt;/EmpName>
+					   &lt;/Info>
+					&lt;/Company></p>
+    	<p><b>Employee XSLT :</b></p>
+    	<p>&lt;?xml version="1.0" encoding="UTF-8"?>
+					&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+					   &lt;xsl:template match="/">
+					      &lt;html>
+					         &lt;body>
+					            &lt;h1>Company Details&lt;/h1>
+					            &lt;table border="1">
+					               &lt;tr>
+					                  &lt;th>EmpId&lt;/th>
+					                  &lt;th>EmpName&lt;/th>
+					               &lt;/tr>
+					               &lt;xsl:for-each select="Company/Info">
+					                  &lt;tr>
+					                     &lt;td>
+					                        &lt;xsl:value-of select="EmpId" />
+					                     &lt;/td>
+					                     &lt;td>
+					                        &lt;xsl:value-of select="EmpName" />
+					                     &lt;/td>
+					                  &lt;/tr>
+					               &lt;/xsl:for-each>
+					            &lt;/table>
+					         &lt;/body>
+					      &lt;/html>
+					   &lt;/xsl:template>
+					&lt;/xsl:stylesheet></p>
+    	
+    	<p><b>Employee css :</b></p>
+    	<p>&lt;style>
+					h1 {
+					  color: green;
+					}
+					&lt;/style></p>
+    	
+    </div>
+    <div>
+    	
+    </div>
+    </div>
+	</form>
+	</div>
+</body>
+</html>

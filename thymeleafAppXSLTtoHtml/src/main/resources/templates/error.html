@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>XML to HTML converter tool by Yogesh Badgujar - Spring
+	Boot and AWS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron text-center">
+				<h1>Please provide correct values, you have provided below
+					values</h1>
+			</div>
+			<div class="col-sm-12">
+				<p><b>Provided xml</b></p>
+				<p><p th:text="${holder.xmlValue}" /></p>
+				
+				<p><b>Provided XSLT</b></p>
+				<p><p th:text="${holder.xsltValue}" /></p>
+				
+				<p><b>Provided CSS</b></p>
+				<p><p th:text="${holder.cssValue}" /></p>
+				<h3>
+					<a href="/home">Try with correct value.....</a>
+				</h3>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
